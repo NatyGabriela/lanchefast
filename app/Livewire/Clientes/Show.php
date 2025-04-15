@@ -7,22 +7,33 @@ use Livewire\Component;
 
 class Show extends Component
 {
-    public $clienteld;
+    public $clienteId;
+    public $nome;
+    public $endereco;
+    public $telefone;
+    public $cpf;
+    public $email;
+    public $senha;
 
-    public function mount($clienteId)
+    // Método para pegar os dados do cliente e popular as propriedades
+    public function mount($id)
     {
-        $this->clienteld = $clienteId;
-    }
+        // Atribui o clienteId e busca os dados do cliente
+        $this->clienteId = $id;
+        $cliente = Cliente::find($id);
 
+        if ($cliente) {
+            $this->nome = $cliente->nome;
+            $this->endereco = $cliente->endereco;
+            $this->telefone = $cliente->telefone;
+            $this->cpf = $cliente->cpf;
+            $this->email = $cliente->email;
+            $this->senha = $cliente->senha;  // Não exiba a senha diretamente
+        }
+    }
     public function render()
     {
-        $cliente = Cliente::find($this->clienteld);
-        return view('livewire.clientes.show', compact('cliente'));
+        return view('livewire.clientes.show');
     }
-
-
-
-
-
-    
 }
+

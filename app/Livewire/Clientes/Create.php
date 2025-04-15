@@ -17,7 +17,7 @@ class Create extends Component
 
     protected $rules = [
         'nome' => 'required|max:80',
-        'endereco'=> 'required|min:20',
+        'endereco'=> 'required|min:15',
         'telefone'=>'required|min:11',
         'cpf'=>'required|max:11',
         'email'=>'required',
@@ -28,7 +28,7 @@ class Create extends Component
           'nome.required'=> 'nome é obrigatório',
           'nome.max'=> 'nome deve conter no maximo 80 caracteres',
           'endereco.required'=> 'endereco é obrigatório',
-          'endereco.min'=> 'endereco deve conter no minimo 20 caracteres',
+          'endereco.min'=> 'endereco deve conter no minimo 15 caracteres',
           'telefone.required'=> 'telefone é obrigatório',
           'telefone.min'=> 'telefone deve conter no minimo 11 caracteres',
           'cpf.required'=> 'cpf é obrigatório',
